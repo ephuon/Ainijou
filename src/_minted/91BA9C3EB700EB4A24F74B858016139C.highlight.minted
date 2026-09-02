@@ -1,0 +1,53 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 强联通分量}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{tar}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{+}\PYG{n}{tot}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{S}\PYG{p}{[}\PYG{o}{+}\PYG{o}{+}\PYG{n}{top}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{tar}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{o}{+}\PYG{o}{+}\PYG{n}{bcnt}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{while}\PYG{p}{(}\PYG{n}{S}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{S}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{bel}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{bcnt}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vis}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{bel}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{bcnt}\PYG{p}{;}\PYG{p}{\PYGZcb{}}\PYG{p}{\PYGZcb{}}
+\PYG{c+cm}{/*边双*/}
+\PYG{c+c1}{// 注意！建立边双树或者圆方树后【边表大小】是否开够}
+\PYG{c+c1}{// 求边双：无视掉 bri 后搜出每个连通块，记得多测}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfscnt}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// clear dfn low bri dfscnt}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{bri}\PYG{p}{[}\PYG{n}{M}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 注意此处是边数}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{tarjan}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// last 是边}
+\PYG{+w}{	}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{+}\PYG{n}{dfscnt}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{head}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{.}\PYG{n}{next}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{.}\PYG{n}{to}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{bri}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{bri}\PYG{p}{[}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{p}{(}\PYG{p}{(}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{last}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{			}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{c+cm}{/** 建立圆方树+求割点 **/}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{is\PYGZus{}cut}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfscnt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{pcnt}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{stk}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dep}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// clear dfn low is\PYGZus{}cut dfscnt, let pcnt=n}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{tarjan}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{fa}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{child}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{+}\PYG{n}{dfscnt}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{stk}\PYG{p}{[}\PYG{o}{+}\PYG{o}{+}\PYG{n}{dep}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{o}{+}\PYG{o}{+}\PYG{n}{child}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{tarjan}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{			}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{				}\PYG{n}{is\PYGZus{}cut}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{;}
+\PYG{+w}{				}\PYG{o}{+}\PYG{o}{+}\PYG{n}{pcnt}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// square node index}
+\PYG{+w}{				}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{sz}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{				}\PYG{k}{do}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{					}\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{stk}\PYG{p}{[}\PYG{n}{dep}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{					}\PYG{n}{addedge}\PYG{p}{(}\PYG{n}{pcnt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{					}\PYG{o}{+}\PYG{o}{+}\PYG{n}{sz}\PYG{p}{;}
+\PYG{+w}{				}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{j}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{				}\PYG{n}{addedge}\PYG{p}{(}\PYG{n}{pcnt}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{min}\PYG{p}{(}\PYG{n}{low}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{dfn}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{fa}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{child}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{is\PYGZus{}cut}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

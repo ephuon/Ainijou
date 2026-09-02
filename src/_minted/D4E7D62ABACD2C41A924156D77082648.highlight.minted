@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{template}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{len}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{c+c1}{// 动态size的bitset}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{solve}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{if}\PYG{p}{(}\PYG{n}{siz}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{len}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{void}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{solve}\PYG{o}{\PYGZlt{}}\PYG{n}{min}\PYG{p}{(}\PYG{n}{len}\PYG{o}{*}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{MAXN}\PYG{p}{)}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{bitset}\PYG{o}{\PYGZlt{}}\PYG{n}{len}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{dp}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

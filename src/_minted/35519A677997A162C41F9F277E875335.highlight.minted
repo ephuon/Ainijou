@@ -1,0 +1,10 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import}\PYG{+w}{ }\PYG{n+nn}{sys}
+\PYG{n}{sys}\PYG{o}{.}\PYG{n}{set\PYGZus{}int\PYGZus{}max\PYGZus{}str\PYGZus{}digits}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} \PYGZgt{}= Python 3.11}
+\PYG{n}{T} \PYG{o}{=} \PYG{l+m+mi}{3}
+\PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{T}\PYG{p}{)}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} 本地 assert failed 检查下数字抄错没}
+    \PYG{k}{assert} \PYG{n+nb}{str}\PYG{p}{(}\PYG{l+m+mi}{3} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{100000} \PYG{o}{*} \PYG{l+m+mi}{10} \PYG{o}{*}\PYG{o}{*} \PYG{l+m+mi}{100000}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{9}\PYG{p}{]} \PYG{o}{==} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{133497141}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{c+c1}{\PYGZsh{} 机房 Pypy: 130ms; (1s T = 39)}
+\PYG{c+c1}{\PYGZsh{} QOJ: 201ms; (1s T = 16)}
+\PYG{c+c1}{\PYGZsh{} CF Python3: 1100ms; (1s T = 2.9) Pypy3: 310ms; (1s T = 12)}
+\end{MintedVerbatim}

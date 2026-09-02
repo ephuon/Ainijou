@@ -1,0 +1,4 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n+nb}{export}\PYG{+w}{ }\PYG{n+nv}{CXXFLAGS}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}g \PYGZhy{}Wall \PYGZhy{}Wextra \PYGZhy{}Wconversion \PYGZhy{}Wshadow \PYGZhy{}std=gnu++20\PYGZsq{}}
+\PYG{n+nb}{ulimit}\PYG{+w}{ }\PYGZhy{}s\PYG{+w}{ }\PYG{l+m}{1048576}
+\end{MintedVerbatim}

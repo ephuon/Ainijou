@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{def}\PYG{+w}{ }\PYG{n+nf}{build}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{level} \PYG{o}{=} \PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{:}
+	\PYG{n}{x} \PYG{o}{=} \PYG{n}{a} \PYG{o}{+} \PYG{n}{c}\PYG{p}{;} \PYG{n}{y} \PYG{o}{=} \PYG{n}{b} \PYG{o}{+} \PYG{n}{d}
+	\PYG{n}{build}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,} \PYG{n}{b}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{level} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+	\PYG{n}{build}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{,} \PYG{n}{c}\PYG{p}{,} \PYG{n}{d}\PYG{p}{,} \PYG{n}{level} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{build}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 最简分数, Stern\PYGZhy{}Brocot}
+\PYG{n}{build}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 最简真分数, Farey}
+\end{MintedVerbatim}

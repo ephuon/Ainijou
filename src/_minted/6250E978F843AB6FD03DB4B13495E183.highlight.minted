@@ -1,0 +1,5 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// lontitude 经度范围: $\pm\pi$, latitude 纬度范围: $\pm\pi/2$}
+\PYG{n}{LD}\PYG{+w}{ }\PYG{n+nf}{sphereDis}\PYG{p}{(}\PYG{n}{LD}\PYG{+w}{ }\PYG{n}{lon1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{n}{lat1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{n}{lon2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{n}{lat2}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{LD}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{R}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{acos}\PYG{p}{(}\PYG{n}{cos}\PYG{p}{(}\PYG{n}{lat1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{cos}\PYG{p}{(}\PYG{n}{lat2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{cos}\PYG{p}{(}\PYG{n}{lon1}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{lon2}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{sin}\PYG{p}{(}\PYG{n}{lat1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{sin}\PYG{p}{(}\PYG{n}{lat2}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

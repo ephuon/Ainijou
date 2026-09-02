@@ -1,0 +1,8 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{n}{ULL}\PYG{+w}{ }\PYG{n+nf}{get}\PYG{p}{(}\PYG{n}{vector}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{n}{ULL}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{ha}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{ha}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ha}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{ULL}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mh}{0xdeadbeef}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{ha}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{P}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{17}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{l+m+mi}{997}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

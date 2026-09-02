@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+cm}{/* comment : directed */}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{e}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cur}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{c+cm}{/*, deg[N]*/}\PYG{p}{;}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{E}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{[}\PYG{n}{M}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{vis}\PYG{p}{[}\PYG{n}{M}\PYG{p}{]}\PYG{p}{;}
+\PYG{n}{stack}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{n}{stk}\PYG{p}{;}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{cur}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{cur}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{cur}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{cur}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{[}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{vis}\PYG{p}{[}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{v}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{stk}\PYG{p}{.}\PYG{n}{push}\PYG{p}{(}\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{c+c1}{// dfs for all when disconnect }
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{add}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{id}\PYG{p}{[}\PYG{o}{+}\PYG{o}{+}\PYG{n}{e}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{u}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// s = u}
+\PYG{+w}{	}\PYG{n}{E}\PYG{p}{[}\PYG{n}{u}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{n}{e}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{E}\PYG{p}{[}\PYG{n}{v}\PYG{p}{]}\PYG{p}{.}\PYG{n}{push\PYGZus{}back}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{e}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+cm}{/* 	E[u].push\PYGZus{}back(e); deg[v]++; */}
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{valid}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}
+\PYG{+w}{		}\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{E}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{c+cm}{/*		if (E[i].size() != deg[i]) return 0;*/}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

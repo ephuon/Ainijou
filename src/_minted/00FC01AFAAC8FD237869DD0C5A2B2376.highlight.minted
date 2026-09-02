@@ -1,0 +1,19 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{cmp}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{p}{;}\PYG{p}{\PYGZcb{}}
+\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{build}\PYG{p}{(}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{v}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cmp}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{top}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{e}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{lca}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{l}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{			}\PYG{k}{while}\PYG{p}{(}\PYG{n}{id}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{id}\PYG{p}{[}\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{push}\PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{if}\PYG{p}{(}\PYG{n}{l}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{]}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{e}\PYG{p}{[}\PYG{n}{l}\PYG{p}{]}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{push}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{;}
+\PYG{+w}{			}\PYG{k}{else}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{push}\PYG{p}{(}\PYG{n}{l}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{top}\PYG{o}{\PYGZhy{}}\PYG{o}{\PYGZhy{}}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{		}\PYG{n}{s}\PYG{p}{[}\PYG{o}{+}\PYG{o}{+}\PYG{n}{top}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{e}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{.}\PYG{n}{clear}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{p}{\PYGZcb{}}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{o}{\PYGZlt{}}\PYG{n}{top}\PYG{p}{;}\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{vt}\PYG{o}{:}\PYG{o}{:}\PYG{n}{push}\PYG{p}{(}\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{[}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

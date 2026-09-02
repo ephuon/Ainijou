@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k}{using}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{bitset}\PYG{o}{\PYGZlt{}}\PYG{n}{N}\PYG{o}{\PYGZgt{}}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{B}\PYG{+w}{ }\PYG{n}{edge}\PYG{p}{[}\PYG{n}{N}\PYG{p}{]}\PYG{p}{;}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{dfs}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{B}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{n}{B}\PYG{+w}{ }\PYG{n}{z}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{edge}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{;}\PYG{p}{;}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{		}\PYG{n}{z}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{.}\PYG{n}{\PYGZus{}Find\PYGZus{}first}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{N}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{		}\PYG{n}{unvis}\PYG{p}{.}\PYG{n}{reset}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{o}{!}\PYG{n}{match}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{match}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{)}\PYG{p}{)}
+\PYG{+w}{			}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{[}\PYG{n}{y}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{nl}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{nr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{	}\PYG{n}{B}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{.}\PYG{n}{set}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{(}\PYG{n}{nr}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{(}\PYG{n}{nl}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nl}\PYG{p}{;}\PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)}
+\PYG{+w}{		}\PYG{k}{if}\PYG{p}{(}\PYG{n}{dfs}\PYG{p}{(}\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{match}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{unvis}\PYG{p}{.}\PYG{n}{set}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{for}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{nr}\PYG{p}{;}\PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{[}\PYG{n}{match}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{;}
+\PYG{+w}{	}\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}\PYG{+w}{ }\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

@@ -1,0 +1,11 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ext/rope\PYGZgt{}}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{\PYGZus{}\PYGZus{}gnu\PYGZus{}cxx}\PYG{p}{;}
+\PYG{n}{rope}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{[}\PYG{n}{x}\PYG{p}{]}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{R}\PYG{p}{.}\PYG{n}{erase}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/assoc\PYGZus{}container.hpp\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}ext/pb\PYGZus{}ds/tree\PYGZus{}policy.hpp\PYGZgt{}}
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{\PYGZus{}\PYGZus{}gnu\PYGZus{}pbds}\PYG{p}{;}
+\PYG{n}{tree}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{null\PYGZus{}type}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{less}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rb\PYGZus{}tree\PYGZus{}tag}\PYG{p}{,}
+\PYG{n}{tree\PYGZus{}order\PYGZus{}statistics\PYGZus{}node\PYGZus{}update}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{;}
+\PYG{n}{s}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{.}\PYG{n}{find\PYGZus{}by\PYGZus{}order}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{.}\PYG{n}{order\PYGZus{}of\PYGZus{}key}\PYG{p}{(}\PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{;}
+\end{MintedVerbatim}

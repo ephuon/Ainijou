@@ -1,0 +1,81 @@
+% !TEX root = ../main.tex
+\begin{small}
+\begin{itemize}[leftmargin=0.5mm]
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0.5pt}
+	\item \textbf{\large ---入场检查---} 检查身份证件：胸牌。
+	\item 检查: 手机、智能手表、金属（钥匙）等等。
+	\item 完整测试键盘、鼠标、显示器和座椅。热身赛发现联系工作人员。
+	\item \textbf{\large ---环境检查---} 测试所有可能的提交方式，找到所有题面、排行榜位置。
+	\item 测试 \texttt{-fsanitize address, undefined, define \_GLIBCXX\_DEBUG}
+	\item 测试 \texttt{time} 命令是否能显示内存占用。\texttt{/usr/bin/time -v ./a.out}
+	\item \textbf{\large ---OJ检查---} 测试编译器版本。C++20 \texttt{cin >> (s + 1)}; C++17 \texttt{auto \lbrack x, y\rbrack : a}; C++14 \texttt{\lbrack \rbrack (auto x, auto y)}; C++11 \texttt{auto}; \texttt{bits/stdc++.h}; \texttt{pb\_ds}。
+\begin{minted}{C++}
+#include <ext/rope>
+using namespace __gnu_cxx;
+rope <int> R; R.insert(y, x); R[x]; R.erase(x, 1);
+#include <ext/pb_ds/assoc_container.hpp> 
+#include <ext/pb_ds/tree_policy.hpp> 
+using namespace __gnu_pbds;
+tree <int, null_type, less<int>, rb_tree_tag,
+tree_order_statistics_node_update> s;
+s.insert(1); s.find_by_order(0); s.order_of_key(5);
+\end{minted}
+	\item \texttt{\_\_int128, \_\_float128, long double}。
+	\item pragma target CE; 代码长度限制(256K)，尝试 NO-OUTPUT, OLE, MLE。
+	\item \texttt{for i in {1..11}; do pc2submit a.cpp -y; done} 有没有提交限制。\\默认一分钟提交 10 次；优先队列，上一发没有测完，下一发优先级 -1。
+	\item clock() 是否能够正常工作; 测试本地性能与提交性能。
+\begin{minted}{C++}
+const int N = 1 << 20;
+for (int T = 4; T; T--) {
+    int a[N], b[N], c[N];
+    for (int i = 0; i < N; i++) a[i] = i, b[i] = N - i;
+    ntt_init(N); ntt(a, N, 1); ntt(b, N, 1);
+    for (int i = 0; i < N; i++) c[i] = a[i] * b[i];
+    ntt(c, N, -1); assert (c[0] == 0xad223d); }
+// 机房: 190ms; (1s T = 21)
+// QOJ: 340+-40ms; (1s T = 11.9)
+// CF: 1050+-100ms; (1s T = 3.9)
+\end{minted}
+\begin{minted}{python3}
+import sys
+sys.set_int_max_str_digits(0) # >= Python 3.11 
+T = 3
+for _ in range(T): # 本地 assert failed 检查下数字抄错没
+    assert str(3 ** 100000 * 10 ** 100000)[:9] == "133497141"
+# 机房 Pypy: 130ms; (1s T = 39)
+# QOJ: 201ms; (1s T = 16)
+# CF Python3: 1100ms; (1s T = 2.9) Pypy3: 310ms; (1s T = 12)
+\end{minted}
+\end{itemize}
+\begin{enumerate}[leftmargin=1mm]
+	\setlength{\itemsep}{0pt}
+	\setlength{\parskip}{0.5pt}
+\item \textbf{\large ---提交前检查---} 保存, 编译, 测过样例，测过 n=0/1；
+\item 数组大小: N/M；时间空间限制；输入实数？MOD 多少？开 LL
+\item \textbf{调用 \large{init}}, 清空时数组大小 (0, 1, n 还是 m, n+1)
+\item 输出取模取到正值，输出格式
+\item 多组没读入完就 break
+\item 关流同步, 注意不要关流同步混用
+\item 加上需要怀疑的 \texttt{assert}
+\item 开 \texttt{Ofast}，位运算开 \texttt{target("abm")}
+\end{enumerate}
+\begin{enumerate}[leftmargin=1mm]
+\setlength{\itemsep}{0pt}
+\setlength{\parskip}{0.5pt}
+\item \textbf{\large ---提交后检查---} 变量复用后忘记改回去
+\item sum 多组输入: 应只用了输入内容 (memset TL, 错下标 WA), 用前清空还是用后
+\item int/LL 溢出, INF/-1 大小，浮点数 eps 和 = 0, \texttt{\_\_builtin\_popcount\large{ll}}
+\item 类似 \texttt{pair <LL, int> x = pair <int, int>();} 不会报警告 
+\item 离散化与二分: \texttt{lower\_bound upper\_bound +-1}, begin(), end()
+\item 自定义排序：排序方向，比较函数为小于，考虑坏点: 如叉积 (0, 0)
+\item 样例是否为对称/回文的？考虑构造不对称的情况，正序逆序
+\item 复制过的代码对应位置正确修改
+\item 检查 shadow 变量重名
+\item 分类讨论: if 嵌套, break 位置
+\item 图: 边标号初始是否为 1, 单双向边, 反向边边权
+\item 几何: 共线, sqrt(-0.0), nan / inf, 重点, 除零 det/dot, 旋转方向
+\item 浮点数：eps 量纲：应当至少取到（最短线段 $\times$ 精度要求）。
+\item 二分，三分：次数。
+\end{enumerate}
+\end{small}
