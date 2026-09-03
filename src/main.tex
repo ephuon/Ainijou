@@ -209,32 +209,30 @@
 		\begin{spacing}{0.6}
 			
 			\section{Geometry}
-				% \subsection{声明与宏}
-				% 	\inputminted{cpp}{src/Geometry/GeoDefine.cpp}
-				% \subsection{点}
-				% 	\inputminted{cpp}{src/Geometry/Point.cpp}
-				\subsection{二维几何基础操作}
-				%\subsection{凸包}
-					\inputminted{cpp}{src/Geometry/凸包.cpp}
-					\inputminted{cpp}{src/Geometry/闵可夫斯基和.cpp}
-					\inputminted{cpp}{src/Geometry/geo.cpp}
-				%	\inputminted{cpp}{src/Geometry/far_pair.cpp}
-				% \subsection{直线半平面交}
-					\inputminted{cpp}{src/Geometry/半平面交.cpp}
+				\subsection{声明与宏}
+					\inputminted{cpp}{src/Geometry/GeoDefine.cpp}
+				\subsection{点}
+					\inputminted{cpp}{src/Geometry/Point.cpp}
+				\subsection{线}
+					\inputminted{cpp}{src/Geometry/Line.cpp}
+				\subsection{圆}
+					\inputminted{cpp}{src/Geometry/circle.cpp}
+				\subsection{凸包}
+					\inputminted{cpp}{src/Geometry/Convex.cpp}
+				\subsection{三角形}
+					\inputminted{cpp}{src/Geometry/Triangle.cpp}
+				\subsection{多边形}
+					\inputminted{cpp}{src/Geometry/Polygon.cpp}
+				\subsection{半平面交}
+					\inputminted{cpp}{src/Geometry/HalfPlaneIntersection.cpp}
+
+				% 以下为原模板中的补充几何内容。
 				\subsection{整数半平面交}
 					\inputminted{cpp}{src/Geometry/integral_hpi.cpp}
-				\subsection{凸包询问：凸包内、切点、交点、最近点}
-					\inputminted{cpp}{src/Geometry/convex_findmax.cpp}
-				
-
-				
-				 \subsection{点、线段在简单多边形内}
+				\subsection{点、线段在简单多边形内}
 					\inputminted{cpp}{src/Geometry/AirportConstruction.cpp}
 				\subsection{$O(n ^ 2)$ Ear Clipping 三角剖分}
-				\inputminted{cpp}{src/Geometry/Triangulation.cpp}
-				\subsection{单插入动态凸包}
-				\inputminted{cpp}{src/Geometry/dynamic_convex_hull.cpp}
-				\input
+					\inputminted{cpp}{src/Geometry/Triangulation.cpp}
 					% \subsection{凸包快速询问}
 					% \inputminted{cpp}{src/Geometry/logconvexhull.cpp}
 %				\subsection{直线与凸包交点}
@@ -244,8 +242,6 @@
 				% \subsection{Delaunay 三角剖分}
 				% \inputminted{cpp}{src/Geometry/DelaunayTriangulation.cpp}
 				
-				\subsection{圆}
-					\inputminted[highlightlines={7}]{cpp}{src/Geometry/circle.cpp}
 				\subsection{圆反演，阿波罗尼茨圆}
 				\begin{small}
 					\input{src/Geometry/阿波罗尼茨圆.tex}
@@ -253,8 +249,6 @@
 					\inputminted{cpp}{src/yzh/circle_inversion.cpp}
 				\subsection{圆并}
 					\inputminted{cpp}{src/Geometry/圆并.cpp}
-				\subsection{多边形与圆交}
-					\inputminted{cpp}{src/Geometry/多边形和圆的交.cpp}
 				
 				%\subsection{圆幂~圆反演~根轴}
 				%	\input{src/Geometry/圆幂.tex}
@@ -266,8 +260,6 @@
 	
 				\subsection{圆上整点}
 					\inputminted{cpp}{src/Geometry/圆上整点.cpp}
-				\subsection{三角形}
-				\inputminted{cpp}{src/Geometry/三角形.cpp}
 				\subsection{相关公式：三角形心，海伦公式，欧拉定理，内接球，外接圆}
 					\input{src/Geometry/Formula(Saga).tex}
 				\subsection{三维几何基础操作}
