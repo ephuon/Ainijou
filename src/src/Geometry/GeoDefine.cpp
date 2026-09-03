@@ -1,18 +1,17 @@
-// 常用类型简写；使用前需先声明 point、line、circle。
-#define cp const point &              // 只读点引用
-#define cl const line &               // 只读直线引用
-#define cc const circle &             // 只读圆引用
-#define vp std::vector<point>         // 点集
-#define cvp const std::vector<point> & // 只读点集引用
-#define ld long double                // 坐标与几何计算类型，可按题目修改
-#define db long double                // 普通浮点类型
+#define cp const point &
+#define cl const line &
+#define cc const circle &
+#define vp std::vector<point>
+#define cvp const std::vector<point> &
+#define ld long double // 可修改
+#define db long double
 
-std::mt19937 rnd(time(0));            // 随机化算法使用的随机数引擎
-const db eps = 1e-12;                 // 绝对误差；坐标很大或很小时需调整
-const db pi = std::numbers::pi;       // C++20
-const db INF = 1e9;                   // 有限哨兵值，不是数值无穷大
+std::mt19937 rnd(time(0));
+const db eps = 1e-12;
+const db pi = std::numbers::pi; // C++20
+const db INF = 1e9;
 
-int sgn(ld x) { // 带 eps 的三态符号：正数 1，负数 -1，近零 0
+int sgn(ld x) {
     return x > eps ? 1 : (x < -eps ? -1 : 0);
 }
 // ==================== atan2 ====================

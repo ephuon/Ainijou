@@ -1,8 +1,7 @@
 struct line { // 有向直线 s -> t；也按调用场景表示线段 [s,t] 或射线 s->t
-    point s, t; // s 是起点，t 决定方向；允许存储退化线段 s == t
+    point s, t;
 
-    line (cp a, cp b) : s(a), t(b) {} // 由两个端点构造
-    line (cl l): s(l.s), t(l.t) {}    // 拷贝构造
+    line (cp a, cp b) : s(a), t(b) {}
 };
 bool point_on_line(cp a, cl l) { // 点 a 在无限直线 l 上；要求 l.s != l.t
     return sgn((a - l.s) ^ (l.t - l.s)) == 0;

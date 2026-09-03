@@ -1,14 +1,9 @@
-struct point { // 二维点；也用 point 表示从原点出发的二维向量
-    ld x, y;   // 笛卡尔坐标
+struct point {
+    ld x, y;
     
     point() = default; // 默认构造，会默认构造x和y
-    point(const ld &x = 0, const ld &y = 0): x(x), y(y) {} // 默认原点
-    point(cp a): x(a.x), y(a.y) {}                         // 拷贝构造
+    point(ld _x, ld _y): x(_x), y(_y) {}
 
-    point operator = (cp a) { // 赋值并返回赋值后的点
-        x = a.x, y = a.y;
-        return *this;
-    }
     point rot(ld t) const { // 绕原点逆时针旋转 t 弧度
         ld c = std::cos(t), s = std::sin(t);
         return point(x * c - y * s, x * s + y * c);
@@ -16,7 +11,7 @@ struct point { // 二维点；也用 point 表示从原点出发的二维向量
     point rot90() const { return point(-y, x); }  // 逆时针旋转 90 度
     point _rot90() const { return point(y, -x); } // 顺时针旋转 90 度
     ld len() const { return std::sqrt(x * x + y * y); } // 向量长度
-    ld len2() const { return x * x + y * y; }            // 长度平方，避免开方
+    ld len2() const { return x * x + y * y; } // 长度平方
     point unit() const { // 同方向单位向量；要求当前向量非零
         ld d = len();
         return point(x/d, y/d);
@@ -29,10 +24,10 @@ struct point { // 二维点；也用 point 表示从原点出发的二维向量
     }
 };
 
-bool operator < (cp a, cp b) { // 精确字典序 (x, y)，供 sort、set 使用
+bool operator < (cp a, cp b) { // 精确字典序 (x, y) 不使用 eps
     return a.x == b.x ? a.y < b.y : a.x < b.x;
 }
-bool operator > (cp a, cp b) { // 精确逆字典序；不使用 eps
+bool operator > (cp a, cp b) { // 精确字典序 (x, y) 不使用 eps
     return a.x == b.x ? a.y > b.y : a.x > b.x;
 }
 bool operator == (cp a, cp b) { // eps 意义下两坐标分别相等
@@ -41,7 +36,7 @@ bool operator == (cp a, cp b) { // eps 意义下两坐标分别相等
 point operator +(cp a, cp b) { // 向量加法
     return point(a.x+b.x, a.y+b.y);
 }
-point operator -(cp a, cp b) { // 向量减法；两点相减得到位移向量
+point operator -(cp a, cp b) { // 向量减法
     return point(a.x-b.x, a.y-b.y);
 }
 point operator *(const ld &a, cp b) { // 标量乘向量；标量必须写在左侧

@@ -1,10 +1,10 @@
 # Fdb version 4
-["xdvipdfmx"] 1788404638.30843 "main.xdv" "main.pdf" "main" 1788404639.59246 0
-  "main.xdv" 1788404637 3279204 1eaf1c8aad61925ed34815b0c3b87689 "xelatex"
+["xdvipdfmx"] 1788405220.71881 "main.xdv" "main.pdf" "main" 1788405221.95031 0
+  "main.xdv" 1788405220 3283100 9b47c8c82a29fc586772b727c9575571 "xelatex"
   (generated)
   "main.pdf"
   (rewritten before read)
-["xelatex"] 1788404625.79079 "main.tex" "main.xdv" "main" 1788404639.55276 0
+["xelatex"] 1788405208.91603 "main.tex" "main.xdv" "main" 1788405221.92805 0
   "_minted/004FF6C117873EF0426EF473DEF34B2B.highlight.minted" 1787980175 4366 06576d2df1f461e3346d25c921084527 ""
   "_minted/00FC01AFAAC8FD237869DD0C5A2B2376.highlight.minted" 1787980174 3948 6e1c67efe44f0490b9e3b2c92da81803 ""
   "_minted/033549C19870D1CB9AD2FB4FCC68196D.highlight.minted" 1787980175 4994 8fa86c4b149e64aeba9933ed6f409f20 ""
@@ -51,7 +51,6 @@
   "_minted/64DC9DFA51CBA336EC569886D504F7E2.highlight.minted" 1787980174 3864 0f315100560b03ff124d8a3dac73bf0f ""
   "_minted/679E50CE111A9FDA02720D75C533DE1E.highlight.minted" 1787980174 3904 7df9b9f864423558786643fbd568f61a ""
   "_minted/7073A28837B204DDCF30CBBB2F25B954.highlight.minted" 1787980175 383 c6baae4ecf54e6203ad53eba78dbf9a8 ""
-  "_minted/707BA0B18BEE2DC110852A1F5FEF5AFF.highlight.minted" 1788404607 12213 f705d6b03807585ac62331fb34a608a9 ""
   "_minted/716B8C063B6D9FD473FAC8D6320C24F4.highlight.minted" 1787980175 1124 cb60edb41c4c261af8d7a481079ae71c ""
   "_minted/7ED88A1B4237C0362518897E1182E90E.highlight.minted" 1787980175 2826 9ae44f41f97c97b25fab67e46f987390 ""
   "_minted/7FA8FF4C66CEC9989A4CEC23251D80B4.highlight.minted" 1787980174 6602 949e6e5ace70d240977c433f158ae56c ""
@@ -98,6 +97,7 @@
   "_minted/DB9E7F9FCD5775B7D25776664F1D1FC9.highlight.minted" 1787980174 3675 6165c48f4f1978c86fbe9d18745d1f2f ""
   "_minted/DE4372CE80DEEABADEF9D00A2F4CF6FB.highlight.minted" 1787980175 4506 2410b16bb01a711f6fb91c9e607cc09d ""
   "_minted/DF1E0B503F7B3E0B3429CB3BD41D3817.highlight.minted" 1787980174 5722 55afde6777a4475e4c51e52adf2bd954 ""
+  "_minted/DF4F26D96B7E34E48EFB2794A343C939.highlight.minted" 1788405200 13324 1a0e2900707f79b215adbff4d107fd66 ""
   "_minted/E5AD5126819DC7AD6973C65D280A065A.highlight.minted" 1787980174 4378 3b56d3194174c156d039444ad820591c ""
   "_minted/EA6E46C4E03DCA958529936F81FD9840.highlight.minted" 1787980174 5564 fec7d653e8e4b94172353d4e55a1cc00 ""
   "_minted/ED06112B861D407EA5C4FC54DBFAC859.highlight.minted" 1787980174 6612 246b2ee83fda466e25ca06fad22a004a ""
@@ -110,7 +110,7 @@
   "_minted/FE0A5020B4DD31EBEC2C29A826DBC9E1.highlight.minted" 1787980175 2580 8fce6d290c329ef0bf875cfb19f4fcc4 ""
   "_minted/FE77FF89F2E206503454DA91259B4790.highlight.minted" 1788404617 11406 24a0bedecee5f46cff26091b908cc397 ""
   "_minted/FFB0AFCCC71A826D9ABE870E9D203B72.highlight.minted" 1787980175 940 a724ef9840a7540cc0ffec3b74ce893e ""
-  "_minted/_FAD58DE7366495DB4650CFEFAC2FCD61.index.minted" 1788404624 6330 d5af9fa0b0838b86f6db343b042ee572 ""
+  "_minted/_FAD58DE7366495DB4650CFEFAC2FCD61.index.minted" 1788405208 6330 54a21f9a19a786bbc64844c385a78d60 ""
   "_minted/default.style.minted" 1787980174 6526 e1fb43a91491f41b33310478eee48cdb ""
   "_minted/xcode.style.minted" 1787980174 5572 4086d434ede5ff047aa9b1f026826aa5 ""
   "c:/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1760685018 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -287,10 +287,10 @@
   "cover/cover.tex" 1787980359 1515 ec0d1011d969051f6e3a36f3e762943d ""
   "cover/sjtubannerred.pdf" 1756017475 57996 e6b95c0b0564a92ad06759373d476fbb ""
   "cover/tomorin_frame_4_15390.jpg" 1756017475 58237 678b1b13112da1d8755386935b52e8ef ""
-  "main.aux" 1788404637 27880 6e8e20b119d43b3bf786e90fd5717ff9 "xelatex"
-  "main.out" 1788404637 24025 178ade28b4ffaae4d90c85a0e3208f53 "xelatex"
+  "main.aux" 1788405220 27880 a026ddc90466d8db75cd8efbeb298975 "xelatex"
+  "main.out" 1788405220 24025 178ade28b4ffaae4d90c85a0e3208f53 "xelatex"
   "main.tex" 1788402798 23059 ca3d49db319591f31712571581191aca ""
-  "main.toc" 1788404637 18592 8bb77b5d8c5498e6b1e318b2f72639ed "xelatex"
+  "main.toc" 1788405220 18592 675cc95333ec80927dd7f031c048829c "xelatex"
   "src/DataStructure/FHQ_treap.cpp" 1756017475 1928 25912d70525cd59b9189f27cb03587c2 ""
   "src/DataStructure/LCT.cpp" 1756017475 1979 ea4321e1a47de0d79ff988255fa79991 ""
   "src/DataStructure/RangeBIT.cpp" 1756017475 425 4e6eabaa8aa4e3c58688c8170d1c8ec9 ""
@@ -308,7 +308,7 @@
   "src/Geometry/GeoDefine.cpp" 1788404320 1727 71eea695ee5b4f40e2c4d842eaabb4c2 ""
   "src/Geometry/HalfPlaneIntersection.cpp" 1788404576 2856 36f87f419a5e09aec3b072550b00285b ""
   "src/Geometry/Line.cpp" 1788404576 3181 770daa8d7373abb24f437d90a0ab8a99 ""
-  "src/Geometry/Point.cpp" 1788404320 2366 3a228d216839ca44a5bda0911d9f70ed ""
+  "src/Geometry/Point.cpp" 1788405140 2553 105756ed814cc688b4f69f412ef415c3 ""
   "src/Geometry/Polygon.cpp" 1788404502 3241 e50ff26e4cc6270b5b71da870cd685e5 ""
   "src/Geometry/Triangle.cpp" 1788404502 2215 bffa43e69882aca5492ecdd06bbe7be3 ""
   "src/Geometry/Triangulation.cpp" 1756017475 663 f9c159e0f9a5442570aefcb96806b131 ""

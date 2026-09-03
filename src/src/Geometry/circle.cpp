@@ -35,7 +35,7 @@ circle min_circle(vp p) { // 随机增量法求最小覆盖圆，期望 O(n)
                 if (!in_circle(p[j], ret))
                     for (ret = circle(p[i], p[j]), k = 0; k < j; ++k)
                         if (!in_circle(p[k], ret))
-                            ret = circle(p[i], p[j], p[k]);
+                            ret = circle(p[i], p[j], p[k]); // 如果这里共线了 那要改成用最远直径构造圆
     return ret;
 }
 
