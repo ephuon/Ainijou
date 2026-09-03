@@ -1,5 +1,9 @@
 \begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{poly\PYGZus{}cut}\PYG{p}{(}\PYG{n}{vp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 直线切多边形，返回左侧图形端点，O(n)}
+\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{poly\PYGZus{}cut}\PYG{p}{(}\PYG{n}{vp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 用有向直线 l 裁剪凸多边形 p，O(n)}
+\PYG{+w}{    }\PYG{c+c1}{// 保留 l.s\PYGZhy{}\PYGZgt{}l.t 左侧及直线上的点，返回值沿用 p 的顶点顺序且不重复首点。}
+\PYG{+w}{    }\PYG{c+c1}{// p 可顺时针或逆时针，但必须是单个凸多边形；一般凹多边形裁剪后可能不连通，}
+\PYG{+w}{    }\PYG{c+c1}{// 本函数的单个点序列无法表示多个连通分量。要求 l 不退化。}
+\PYG{+w}{    }\PYG{c+c1}{// 空输入返回空；边与裁剪线严格相交时插入唯一交点，线上的原端点直接保留。}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{p}\PYG{p}{.}\PYG{n}{empty}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{vp}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
@@ -13,19 +17,25 @@
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{poly\PYGZus{}area}\PYG{p}{(}\PYG{n}{cvp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{poly\PYGZus{}area}\PYG{p}{(}\PYG{n}{cvp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 简单多边形面积，O(n)}
+\PYG{+w}{    }\PYG{c+c1}{// 顺/逆时针均返回非负面积；少于 3 点返回 0。}
+\PYG{+w}{    }\PYG{c+c1}{// 自交多边形得到的是有向面积绝对值，不一定等于各区域几何面积之和。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{area}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{n}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{j}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{i}\PYG{o}{+}\PYG{o}{+}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{area}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{area}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{vector\PYGZus{}angle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{vector\PYGZus{}angle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 两个非零向量的无向小夹角，范围 [0, pi]}
+\PYG{+w}{    }\PYG{c+c1}{// 使用单位向量弦长公式；任一向量为零时 unit() 会除以 0，本函数不适用。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{chord}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{u}\PYG{p}{.}\PYG{n}{unit}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{v}\PYG{p}{.}\PYG{n}{unit}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{asin}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{clamp}\PYG{p}{(}\PYG{n}{chord}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{0.0L}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mf}{1.0L}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{sector\PYGZus{}triangle\PYGZus{}area}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 返回二倍有向面积}
+\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{sector\PYGZus{}triangle\PYGZus{}area}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 圆心在原点时，一条边对交面积的贡献}
+\PYG{+w}{    }\PYG{c+c1}{// 要求 r \PYGZgt{}= 0，s、t 非零且 s\PYGZca{}t \PYGZgt{}= 0；返回圆盘与三角形 O\PYGZhy{}s\PYGZhy{}t 交集的二倍面积。}
+\PYG{+w}{    }\PYG{c+c1}{// 若 s\PYGZca{}t \PYGZlt{} 0，应交换 s、t 后调用并在外层减去结果。}
+\PYG{+w}{    }\PYG{c+c1}{// 线段不穿过圆内部时贡献为扇形；穿过时拆为弦三角形与两侧扇形。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{theta}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}angle}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{distance}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{point\PYGZus{}to\PYGZus{}segment}\PYG{p}{(}\PYG{n}{point}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{line}\PYG{p}{(}\PYG{n}{s}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{t}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{distance}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{theta}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}
@@ -36,7 +46,11 @@
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{lo}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{n}{hi}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{theta}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{vector\PYGZus{}angle}\PYG{p}{(}\PYG{n}{lo}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{hi}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{polygon\PYGZus{}circle\PYGZus{}intersection\PYGZus{}area}\PYG{p}{(}\PYG{n}{cvp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{polygon\PYGZus{}circle\PYGZus{}intersection\PYGZus{}area}\PYG{p}{(}\PYG{n}{cvp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 简单多边形与圆盘交集面积，O(n)}
+\PYG{+w}{    }\PYG{c+c1}{// p 可顺时针或逆时针，末尾不要重复首点；空多边形返回 0，圆半径须非负。}
+\PYG{+w}{    }\PYG{c+c1}{// 当前辅助函数要求每个顶点均不与圆心 c 重合；若重合，应先删去该零长度向量顶点}
+\PYG{+w}{    }\PYG{c+c1}{// 或单独处理相邻边，否则 vector\PYGZus{}angle() 中单位化零向量会产生无效值。}
+\PYG{+w}{    }\PYG{c+c1}{// 对每条边按叉积方向累加/减去贡献，最终取绝对值，因此返回非负面积。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{p}{)}\PYG{n}{p}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{o}{+}\PYG{o}{+}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
 \PYG{+w}{        }\PYG{n}{point}\PYG{+w}{ }\PYG{n}{u}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{.}\PYG{n}{c}\PYG{p}{;}
@@ -46,5 +60,5 @@
 \PYG{+w}{        }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{side}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{n}{ret}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sector\PYGZus{}triangle\PYGZus{}area}\PYG{p}{(}\PYG{n}{v}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{u}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{ret}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}
-\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{// p 逆时针时，未取绝对值的 ret 为正}
+\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{// 对简单多边形，p 逆时针时未取绝对值的 ret 为正}
 \end{MintedVerbatim}

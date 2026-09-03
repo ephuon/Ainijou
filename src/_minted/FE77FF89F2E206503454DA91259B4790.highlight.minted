@@ -1,18 +1,26 @@
 \begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{half}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{c+c1}{// 每条有向直线均表示其左侧可行半平面；正面积结果的边界由这些直线给出。}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{half}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 极角排序用的半平面编号：上半平面 1，下半平面 0}
+\PYG{+w}{    }\PYG{c+c1}{// 正 x 轴归入上半平面，负 x 轴归入下半平面；要求 a 是非零方向向量。}
+\PYG{+w}{    }\PYG{c+c1}{// 这里对 y == 0 使用精确比较，以保持排序比较器的严格弱序性质。}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{turn\PYGZus{}left}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{turn\PYGZus{}left}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 直线 b、c 的交点是否严格位于 a 的左侧}
+\PYG{+w}{    }\PYG{c+c1}{// 要求 b、c 不平行且三条直线均不退化；边界点返回 false。}
 \PYG{+w}{    }\PYG{n}{point}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ll\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{parallel}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{parallel}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 两条直线的方向是否在 eps 意义下平行}
+\PYG{+w}{    }\PYG{c+c1}{// 同向和反向均返回 true；退化直线也会被判为平行，故输入不得退化。}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{line\PYGZus{}angle\PYGZus{}cmp}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{line\PYGZus{}angle\PYGZus{}cmp}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 按方向极角排序半平面边界}
+\PYG{+w}{    }\PYG{c+c1}{// 同向平行时把更靠左、也就是约束更强的直线排在前面，供 hpi 去重。}
+\PYG{+w}{    }\PYG{c+c1}{// 要求输入直线不退化；近似平行的方向应有足够数值间隔，避免 eps 比较破坏排序稳定性。}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{side}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{half}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{half}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{direction}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{t}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{s}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{direction}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{o}{\PYGZam{}}\PYG{+w}{ }\PYG{n}{side}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
@@ -20,7 +28,11 @@
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{side}\PYG{+w}{ }\PYG{o}{!}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{side}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{direction}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{point}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{hpi}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{line}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{halfplanes}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{point}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{hpi}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{line}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{halfplanes}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 左半平面交，O(n log n)}
+\PYG{+w}{    }\PYG{c+c1}{// 每条线均须不退化，方向按“可行域在左侧”给出。建议先加入足够大的逆时针外框，}
+\PYG{+w}{    }\PYG{c+c1}{// 将无界区域截成有界区域；否则空集与无界/开区域都可能以空向量表示。}
+\PYG{+w}{    }\PYG{c+c1}{// 返回非空有界交集的顶点循环序列，不重复首点；平行同向约束只保留最强者。}
+\PYG{+w}{    }\PYG{c+c1}{// 内部判定使用严格左转：正面积区域仍返回边界顶点；零面积交集（点或线段）会被判空。}
 \PYG{+w}{    }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{sort}\PYG{p}{(}\PYG{n}{halfplanes}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{halfplanes}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{line\PYGZus{}angle\PYGZus{}cmp}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{line}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{(}\PYG{n}{halfplanes}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{line}\PYG{p}{(}\PYG{n}{point}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{point}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
@@ -38,7 +50,5 @@
 \PYG{+w}{        }\PYG{n}{ret}\PYG{p}{[}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{ll\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{[}\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{n}{l}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
-\PYG{c+c1}{// 空集会在队列里留下一个开区域，开区域会被判定为空集。}
-\PYG{c+c1}{// 为保证正确性，一定要加足够大的框，尽可能避免零面积区域。}
-\PYG{c+c1}{// 若必须保留零面积区域边缘，需要仔细调整 turn\PYGZus{}left 的实现。}
+\PYG{c+c1}{// 注意：若不加外框，队列可能留下无法闭合的开区域，最终同样返回空。}
 \end{MintedVerbatim}

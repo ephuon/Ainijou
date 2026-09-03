@@ -1,15 +1,16 @@
 \begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
-\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{circle}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{circle}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 圆由圆心 c 与半径 r 表示}
 \PYG{+w}{    }\PYG{n}{point}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{;}
-\PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{// 以下所有圆算法均要求 r \PYGZgt{}= 0}
 
-\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ld}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
-\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
-\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{ld}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{(}\PYG{n}{c}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{c+c1}{// 指定圆心、半径}
+\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{r}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{+w}{              }\PYG{c+c1}{// 拷贝构造}
+\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 以线段 ab 为直径构圆；a == b 时为点圆}
 \PYG{+w}{        }\PYG{n}{c}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{r}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
-\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 注意三点共线}
+\PYG{+w}{    }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{y}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{z}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 三点外接圆；要求三点不共线}
+\PYG{+w}{        }\PYG{c+c1}{// 三点共线或 eps 意义下近似共线时 d 接近 0，结果无效。}
 \PYG{+w}{        }\PYG{n}{point}\PYG{+w}{ }\PYG{n+nf}{p}\PYG{p}{(}\PYG{n}{y}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{(}\PYG{n}{z}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{point}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{(}\PYG{p}{(}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{q}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{        }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{d}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{o}{\PYGZca{}}\PYG{+w}{ }\PYG{n}{q}\PYG{p}{;}
@@ -18,11 +19,14 @@
 \PYG{+w}{    }\PYG{p}{\PYGZcb{}}
 \PYG{p}{\PYGZcb{}}\PYG{p}{;}
 
-\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{in\PYGZus{}circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n+nf}{in\PYGZus{}circle}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 点 a 是否在圆 b 内部或边界上}
+\PYG{+w}{    }\PYG{c+c1}{// 边界按 eps 计入圆内；要求 b.r \PYGZgt{}= 0。}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{circle}\PYG{+w}{ }\PYG{n+nf}{min\PYGZus{}circle}\PYG{p}{(}\PYG{n}{vp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// O(n)，要求 p 非空}
+\PYG{n}{circle}\PYG{+w}{ }\PYG{n+nf}{min\PYGZus{}circle}\PYG{p}{(}\PYG{n}{vp}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 随机增量法求最小覆盖圆，期望 O(n)}
+\PYG{+w}{    }\PYG{c+c1}{// 要求 p 非空；允许重复点。三点构圆仍要求相关三点不共线，}
+\PYG{+w}{    }\PYG{c+c1}{// 若输入可能触发共线三点构圆，应为该情形补充以最远点对为直径的特判。}
 \PYG{+w}{    }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{shuffle}\PYG{p}{(}\PYG{n}{p}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{end}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rnd}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{n}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{.}\PYG{n}{size}\PYG{p}{(}\PYG{p}{)}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{i}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{j}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{k}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{circle}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{(}\PYG{n}{p}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}
@@ -36,7 +40,9 @@
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{ret}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{lc\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{lc\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{cl}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 无限直线 l 与圆 c 的交点}
+\PYG{+w}{    }\PYG{c+c1}{// 要求 l 不退化且 c.r \PYGZgt{}= 0。相离返回空，外切返回 1 点，相交返回 2 点。}
+\PYG{+w}{    }\PYG{c+c1}{// 两交点依次位于垂足沿 (l.t\PYGZhy{}l.s) 正方向、负方向的一侧。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{point\PYGZus{}to\PYGZus{}line}\PYG{p}{(}\PYG{n}{c}\PYG{p}{.}\PYG{n}{c}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{l}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
 \PYG{+w}{    }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{max}\PYG{o}{\PYGZlt{}}\PYG{n}{ld}\PYG{o}{\PYGZgt{}}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{c}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
@@ -46,7 +52,9 @@
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{n}{p}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{cc\PYGZus{}intersection\PYGZus{}area}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{ld}\PYG{+w}{ }\PYG{n+nf}{cc\PYGZus{}intersection\PYGZus{}area}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 两个闭圆盘交集的面积}
+\PYG{+w}{    }\PYG{c+c1}{// 相离或外切返回 0；内含或内切返回小圆面积；一般相交返回两弓形面积之和。}
+\PYG{+w}{    }\PYG{c+c1}{// 同心圆与点圆均可处理，但半径必须非负。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{d}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{d}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{d}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
@@ -60,7 +68,9 @@
 \PYG{+w}{            }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{d}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{sin}\PYG{p}{(}\PYG{n}{t1}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{cc\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{cc\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 两圆圆周的有限交点}
+\PYG{+w}{    }\PYG{c+c1}{// 相离、内含但不内切、同心圆均返回空；注意重合圆有无穷交点，也以空表示。}
+\PYG{+w}{    }\PYG{c+c1}{// 相切返回 1 点，相交返回 2 点；两点分别在 a.c\PYGZhy{}\PYGZgt{}b.c 的左侧、右侧。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{d}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{=}\PYG{o}{=}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{d}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}
 \PYG{+w}{            }\PYG{o}{|}\PYG{o}{|}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{d}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}
@@ -73,12 +83,16 @@
 \PYG{+w}{            }\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{dir}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{h}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{dir}\PYG{p}{.}\PYG{n}{rot90}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZcb{}}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{tangent}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 点到圆的切点}
+\PYG{n}{vp}\PYG{+w}{ }\PYG{n+nf}{tangent}\PYG{p}{(}\PYG{n}{cp}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 过点 a 作圆 b 的切线，返回圆上的切点}
+\PYG{+w}{    }\PYG{c+c1}{// a 在圆内返回空，在圆上返回 a，严格在圆外返回两个切点。}
+\PYG{+w}{    }\PYG{c+c1}{// 例外：若 b 是点圆且 a == b.c，重合圆的无穷交点约定使本函数返回空。}
 \PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{cc\PYGZus{}intersection}\PYG{p}{(}\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{circle}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}
 \PYG{p}{\PYGZcb{}}
 
-\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{line}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tangent}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
-\PYG{+w}{    }\PYG{c+c1}{// f = 1：外公切线；f = \PYGZhy{}1：内公切线}
+\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{line}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{tangent}\PYG{p}{(}\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{cc}\PYG{+w}{ }\PYG{n}{b}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{f}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 两圆公切线}
+\PYG{+w}{    }\PYG{c+c1}{// 仅支持 f = 1（外公切线）或 f = \PYGZhy{}1（内公切线）。}
+\PYG{+w}{    }\PYG{c+c1}{// 返回 0/1/2 条有向线，每条从圆 a 的切点指向圆 b 的切点。}
+\PYG{+w}{    }\PYG{c+c1}{// 要求两圆圆心不同且半径非负；同心圆的 0 条或无穷多条切线不由本函数处理。}
 \PYG{+w}{    }\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{d}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{c}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{c}\PYG{p}{)}\PYG{p}{.}\PYG{n}{len}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{relation}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{sgn}\PYG{p}{(}\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{abs}\PYG{p}{(}\PYG{p}{(}\PYG{n}{b}\PYG{p}{.}\PYG{n}{r}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{f}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{n}{a}\PYG{p}{.}\PYG{n}{r}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{n}{d}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{p}{;}
 \PYG{+w}{    }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{relation}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{return}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}\PYG{p}{;}

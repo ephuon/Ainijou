@@ -1,0 +1,39 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{c+c1}{// 常用类型简写；使用前需先声明 point、line、circle。}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define cp const point \PYGZam{}              }\PYG{c+c1}{// 只读点引用}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define cl const line \PYGZam{}               }\PYG{c+c1}{// 只读直线引用}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define cc const circle \PYGZam{}             }\PYG{c+c1}{// 只读圆引用}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define vp std::vector\PYGZlt{}point\PYGZgt{}         }\PYG{c+c1}{// 点集}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define cvp const std::vector\PYGZlt{}point\PYGZgt{} \PYGZam{} }\PYG{c+c1}{// 只读点集引用}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define ld long double                }\PYG{c+c1}{// 坐标与几何计算类型，可按题目修改}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define db long double                }\PYG{c+c1}{// 普通浮点类型}
+
+\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{mt19937}\PYG{+w}{ }\PYG{n+nf}{rnd}\PYG{p}{(}\PYG{n}{time}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{            }\PYG{c+c1}{// 随机化算法使用的随机数引擎}
+\PYG{k}{const}\PYG{+w}{ }\PYG{n}{db}\PYG{+w}{ }\PYG{n}{eps}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1e\PYGZhy{}12}\PYG{p}{;}\PYG{+w}{                 }\PYG{c+c1}{// 绝对误差；坐标很大或很小时需调整}
+\PYG{k}{const}\PYG{+w}{ }\PYG{n}{db}\PYG{+w}{ }\PYG{n}{pi}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{:}\PYG{o}{:}\PYG{n}{numbers}\PYG{o}{:}\PYG{o}{:}\PYG{n}{pi}\PYG{p}{;}\PYG{+w}{       }\PYG{c+c1}{// C++20}
+\PYG{k}{const}\PYG{+w}{ }\PYG{n}{db}\PYG{+w}{ }\PYG{n}{INF}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mf}{1e9}\PYG{p}{;}\PYG{+w}{                   }\PYG{c+c1}{// 有限哨兵值，不是数值无穷大}
+
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n+nf}{sgn}\PYG{p}{(}\PYG{n}{ld}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// 带 eps 的三态符号：正数 1，负数 \PYGZhy{}1，近零 0}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{eps}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{x}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{n}{eps}\PYG{+w}{ }\PYG{o}{?}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{+w}{ }\PYG{o}{:}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+\PYG{c+c1}{// ==================== atan2 ====================}
+\PYG{c+c1}{// std::atan2(y, x)}
+\PYG{c+c1}{// 返回向量 (x, y) 相对 x 轴正方向的有向极角。}
+\PYG{c+c1}{// 注意参数顺序是 atan2(y, x)，不是 atan2(x, y)！}
+\PYG{c+c1}{// 返回范围通常为 [\PYGZhy{}pi, pi]（边界细节涉及 ±0）。}
+\PYG{c+c1}{// x == 0 时仍能正常使用；(0, 0) 的方向没有几何意义。}
+
+\PYG{c+c1}{// ==================== acos ====================}
+\PYG{c+c1}{// std::acos(x)}
+\PYG{c+c1}{// 计算 arccos(x)。}
+\PYG{c+c1}{// 定义域：x in [\PYGZhy{}1, 1]}
+\PYG{c+c1}{// 返回范围：[0, pi]}
+\PYG{c+c1}{// const long double PI = std::acos(\PYGZhy{}1.0L);}
+\PYG{c+c1}{// 浮点误差可能使 cos\PYGZus{}theta 略超 [\PYGZhy{}1, 1]，必须 clamp：}
+\PYG{c+c1}{// cos\PYGZus{}theta = std::clamp(cos\PYGZus{}theta, \PYGZhy{}1.0L, 1.0L);}
+\PYG{c+c1}{// theta = std::acos(cos\PYGZus{}theta);}
+\PYG{c+c1}{// std::clamp(x, l, r)：把 x 限制在闭区间 [l, r]。}
+\PYG{c+c1}{// if (x \PYGZlt{} l) return l;}
+\PYG{c+c1}{// if (x \PYGZgt{} r) return r;}
+\PYG{c+c1}{// return x;}
+\end{MintedVerbatim}
